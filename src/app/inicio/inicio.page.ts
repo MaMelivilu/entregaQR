@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 @Component({
@@ -11,8 +12,9 @@ export class InicioPage implements OnInit {
 
   nombre!: string;
   rut!: string;
+  codigo: any;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner) { }
 
   
 
@@ -26,6 +28,15 @@ export class InicioPage implements OnInit {
     localStorage.removeItem('ingresado');
     this.navCtrl.navigateRoot('login');
 
+  }
+
+  scanear(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.codigo = barcodeData.text;
+      console.log('Barcode data', this.codigo);
+    }).catch(err => {
+      console.log('Error', err);
+    });
   }
 
 }
