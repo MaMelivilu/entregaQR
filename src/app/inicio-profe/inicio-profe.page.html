@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button id="backButton" slot="end" fill="clear" (click)="cerrarSesion()">
+      <ion-icon name="exit-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>Clase Registrada</div>
+
+  <form [formGroup]="formularioClase">
+    <ion-item>
+      <ion-label position="floating">Nombre Profesor</ion-label>
+      <ion-input formControlName="profesor"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora clase</ion-label>
+      <ion-input formControlName="hora"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sala</ion-label>
+      <ion-input formControlName="sala"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Dia</ion-label>
+      <ion-input formControlName="dia"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>
